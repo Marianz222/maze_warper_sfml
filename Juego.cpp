@@ -456,19 +456,16 @@ void Juego::controlTeclado() {
 
 			for (int k = 0; k < 15; k++) {
 
+				/*
 				if (cuadrilla[i][k] == 0) {
 
 					break;
 
-				}
+				} */
 
-
-
-
-				
 				bool hay_colision = false;
 
-				if (cuadrilla[i][k]->retornarColisionador().intersects(nextPosition)) {
+				if (cuadrilla[i][k]->retornarColisionador().intersects(nextPosition) && cuadrilla[i][k]->retornarEstado() > 0) {
 
 					cout << "colision" << cuadrilla[i][k]->retornarEstado() << endl;
 
@@ -509,195 +506,7 @@ void Juego::controlTeclado() {
 					}
 
 				}
-				
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				/*
-				// Check for collisions
-				if (jugador->retornarColisionador().intersects(cuadrilla[i][k]->retornarColisionador()))
-				{
-					// Handle collision
-					cout << "Collision detected!\n";
-
-					//Cálculo para obtener la distancia entre el punto central de ambos sprites
-					sf::Vector2f center1 = jugador->retornarPosicion() + 0.5f * Vector2f(64.f, 64.f);
-					sf::Vector2f center2 = cuadrilla[i][k]->retornarPosicion() + 0.5f * Vector2f(64.f, 64.f);
-					sf::Vector2f distance = center1 - center2;
-
-					//Valor absoluto usado para determinar desde qué dirección provienen las colisiones
-					float absoluto_x = abs(distance.x);
-					float absoluto_y = abs(distance.y);
-
-					if (absoluto_x > absoluto_y)
-					{
-						if (distance.x > 0)
-						{
-							cout << "Collision from right side\n";
-						}
-						else
-						{
-							cout << "Collision from left side\n";
-						}
-					}
-					else
-					{
-						if (distance.y > 0)
-						{
-							cout << "Collision from bottom side\n";
-						}
-						else
-						{
-							cout << "Collision from top side\n";
-						}
-					}
-
-					// Reverse the velocities of the rectangles
-					jugador->mover(jugador->retornarVelocidad().x * -1, jugador->retornarVelocidad().y * -1, tiempo_delta);
-
-				}
-
-				*/
-
-				/*
-				if (Keyboard::isKeyPressed(Keyboard::D)) {
-
-					//Mueve hacia la derecha
-					jugador->mover(jugador->retornarVelocidad().x, 0.0, tiempo_delta);
-
-
-
-				}
-
-				if (Keyboard::isKeyPressed(Keyboard::W)) {
-
-					//Mueve hacia arriba
-					jugador->mover(0.0, (jugador->retornarVelocidad().y * -1), tiempo_delta);
-
-
-
-				}
-
-				if (Keyboard::isKeyPressed(Keyboard::S)) {
-
-					//Mueve hacia abajo
-					jugador->mover(0.0, (jugador->retornarVelocidad().y), tiempo_delta);
-
-
-
-				}
-				if (Keyboard::isKeyPressed(Keyboard::A)) {
-
-					//Mueve hacia la izquierda
-					jugador->mover((jugador->retornarVelocidad().x * -1), 0.0, tiempo_delta);
-
-
-
-				}
-				
-				*/
-
-                /*
-				bool permitir_movimiento_derecha = true;
-
-				if (jugador->retornarColisionador().intersects(cuadrilla[i][k]->retornarColisionador())) {
-
-					if (jugador->retornarPosicion().x <= cuadrilla[i][k]->retornarColisionador().left) {
-
-						cout << "Colision Derecha" << endl;
-
-						//jugador->mover(jugador->retornarVelocidad().x * -1, 0.0f, tiempo_delta);
-
-						permitir_movimiento_derecha = false;
-
-					}
-					else {
-
-						permitir_movimiento_derecha = true;
-
-					}
-
-					if (permitir_movimiento_derecha) {
-
-						if (Keyboard::isKeyPressed(Keyboard::D)) {
-
-							//Mueve hacia la derecha
-							jugador->mover(jugador->retornarVelocidad().x, 0.0, tiempo_delta);
-
-
-
-						}
-
-					}
-
-
-
-
-
-					if (jugador->retornarPosicion().x >= cuadrilla[i][k]->retornarColisionador().left) {
-
-						cout << "Colision Izquierda" << endl;
-
-						if (Keyboard::isKeyPressed(Keyboard::A)) {
-
-							//Mueve hacia la izquierda
-							jugador->mover((jugador->retornarVelocidad().x * -1), 0.0, tiempo_delta);
-
-
-
-						}
-
-					}
-
-
-
-					if (jugador->retornarPosicion().y <= cuadrilla[i][k]->retornarColisionador().top) {
-
-						cout << "Colision Arriba" << endl;
-
-						if (Keyboard::isKeyPressed(Keyboard::W)) {
-
-							//Mueve hacia arriba
-							jugador->mover(0.0, (jugador->retornarVelocidad().y * -1), tiempo_delta);
-
-
-
-						}
-
-					}
-
-
-
-					if (jugador->retornarPosicion().y >= cuadrilla[i][k]->retornarColisionador().top) {
-
-						cout << "Colision Abajo" << endl;
-
-						if (Keyboard::isKeyPressed(Keyboard::S)) {
-
-							//Mueve hacia abajo
-							jugador->mover(0.0, (jugador->retornarVelocidad().y), tiempo_delta);
-
-
-
-						}
-
-					}
-
-				}
-
-				*/
+			
 			}
 
 		}
